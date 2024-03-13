@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Log In
+    link(rel="stylesheet", href="/styles.css")
+  body
+    .container
+      h1 Log In
+      form#login-form(action="/users/login" method="post")
+        .form-group
+          label(for="username") Username:
+          input(type="text" id="username" name="username" required)
+        .form-group
+          label(for="password") Password:
+          input(type="password" id="password" name="password" required)
+        button(type="submit") Log In
+        ul.error-list 
+      p Don't have an account? #{signupLink}
+    script(type='text/javascript' src='/script.js')

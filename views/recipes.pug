@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Recipes
+  body
+    h1 Recipes
+    p This web application was created to fulfill Web Technology module’s requirements and does not represent an actual company or service
+    each recipe in recipes
+      .recipe
+        h2= recipe.title
+        p= recipe.description
+        p= recipe.ingredients
+        p= recipe.steps
+
+        if isAuthenticated && currentUser._id === recipe.creator._id
+          a(href=`/recipes/${recipe._id}/edit`) Edit
+          form(action=`/recipes/${recipe._id}/delete`, method="POST")
+            button(type="submit") Delete
+
+    if !isAuthenticated
+      a(href="/login") Log In
+      a(href="/signup") Sign Up
+  script(type='text/javascript' src='js/recipes.js')
+
